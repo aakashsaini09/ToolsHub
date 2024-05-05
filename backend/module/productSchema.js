@@ -1,6 +1,8 @@
+
+
 import mongoose from 'mongoose';
 const UserSchema = new mongoose.Schema({
-    Slug:{
+    slug:{
         type: String,
         required: true
     },
@@ -11,7 +13,15 @@ const UserSchema = new mongoose.Schema({
     quantity:{
         type: Number,
         required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    createdBy: {
+        type: String,
+        required: true
     }
 },{timestamps:true});
 
-export default mongoose.model("UserData", UserSchema)
+export default mongoose.model("productSchema", UserSchema)

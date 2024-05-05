@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from 'react'
 const FooterPage = () => {
   return (
     <>
@@ -31,7 +30,7 @@ const FooterPage = () => {
         </div>
 
         <div className="text-white font-bold w-full flex justify-center items-center mt-7">Made By Aakash and Ravi Kumar &#169;</div>
-        <div className="font-thin text-white w-full flex justify-center pb-7">It's Our Final year project which can be used to manage stocks.</div>
+        <div className="font-thin text-white w-full flex justify-center pb-7">This project is the pinnacle of stock management innovation for our final year.</div>
     </div>
     </>
   )

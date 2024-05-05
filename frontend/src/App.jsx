@@ -11,21 +11,23 @@ import Contact from './components/Contact';
 import Footer from './components/FooterPage'
 import Login from './components/Login';
 import About from './components/About';
+import Signup from './components/Signup';
 function App() {
   
   return (
-   <>
+   <div style={{backgroundColor: 'faedcd'}}>
    <Router>
     <Navbar/>
     <Routes>
-      <Route exact path='/' element={<Home/>}/>
+      <Route exact path='/' element={<Login/>}/>
+      <Route exact path='/signup' element={<Signup/>}/>
+      <Route exact path='/home' element={<Home/>}/>
       <Route exact path='/contact' element={<Contact/>}/>
-      <Route exact path='/login' element={<Login/>}/>
       <Route exact path='/about' element={<About/>}/>
     </Routes>
     <Footer/>
    </Router>
-   </>
+   </div>
   )
 }
 export default App
