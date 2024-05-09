@@ -7,11 +7,13 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [alertMsg, setalertMsg] = useState("")
-
+  const [loading, setloading] = useState(false)
   const handleSignup = async (e) => {
+    setloading(true)
     e.preventDefault(); 
     try {
       const response = await axios.post(`http://localhost:8000/register`, { email, password, username });
+      setloading(false)
       if (response.data) {
         navigate('/home', { state: { email: email, username: username } });
       } else {
@@ -56,11 +58,11 @@ const Signup = () => {
             <input type="text" value={username} onChange={e => setUsername(e.target.value)} className="mt-4 px-3 py-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none" placeholder="Username"/>
             <input type="email" value={email} onChange={e => setEmail(e.target.value)} className="mt-4 px-3 py-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none" placeholder="Email address" aria-required autoComplete='username'/>
             <input type="password" value={password} onChange={e => setPassword(e.target.value)} className="mt-4 px-3 py-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none" placeholder="Password" autoComplete='current-password'/>
-            <Link to='/' className='signup text-center'>Already have a Account (Login)</Link>
+            <div className='signup text-center text-green-600'><Link to='/' className='signup text-center'>Already have a Account (Login)</Link></div>
             {username && email && password && isEmailValid() ? (
                             <button type="submit" onClick={handleSignup} className="mt-4 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" disabled={!username || !email || !password || !isEmailValid()}>Signup</button>
             ) : (
-              <button type="submit" onClick={handleSignup} className="cursor-not-allowed mt-4 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-indigo-300 hover:bg-indigo-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" disabled={!username || !email || !password || !isEmailValid()}>Signup</button>
+              <button type="submit" onClick={handleSignup} className="cursor-not-allowed mt-4 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-indigo-300 hover:bg-indigo-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" disabled={!username || !email || !password || !isEmailValid() || loading}>Signup</button>
             )}
 
             {/* <button type="submit" onClick={handleSignup} className="mt-4 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" disabled={!username || !email || !password || !isEmailValid()}>Signup</button> */}

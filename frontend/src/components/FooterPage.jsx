@@ -5,7 +5,7 @@ const FooterPage = () => {
       <div className="h-auto bg-black mt-11"> 
         <div className="flex justify-around">
             <div className="w-full h-0.5 bg-white m-8 mt-11"></div>
-              <a href="https://github.com/aakashsaini09/stockmanagement" target='_blank' className='text-white font-bold items-center mt-8'><i className="fa-brands fa-github text-4xl"></i></a>
+              <a href="https://github.com/aakashsaini09/stock" target='_blank' className='text-white font-bold items-center mt-8'><i className="fa-brands fa-github text-4xl"></i></a>
             <div className="line w-full h-0.5 bg-white m-8 mt-11"></div>
         </div>
 
@@ -29,8 +29,8 @@ const FooterPage = () => {
            </div>
         </div>
 
-        <div className="text-white font-bold w-full flex justify-center items-center mt-7">Made By Aakash and Ravi Kumar &#169;</div>
-        <div className="font-thin text-white w-full flex justify-center pb-7">This project is the pinnacle of stock management innovation for our final year.</div>
+        <div className="text-white w-full flex justify-center items-center mt-7">Made By Aakash &#169; 2024</div>
+        <div className="font-thin text-white w-full flex justify-center pb-7">This project is the pinnacle of stock management innovation for my final year.</div>
     </div>
     </>
   )

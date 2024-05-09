@@ -15,6 +15,18 @@ const Home = () => {
   const [popupComp, setpopupComp] = useState(false)
   const [updatingProduct, setupdatingProduct] = useState({})
   const [totalPrice, settotalPrice] = useState(0)
+
+  
+  const calculateTotalPrice = (products) => {
+    let totalPrice = 0;
+    products.forEach((item) => {
+      const itemPrice = parseFloat(item.price);
+      const itemQuantity = parseInt(item.quantity);
+      totalPrice += itemPrice * itemQuantity;
+    });
+    return totalPrice;
+  };
+  
   useEffect(() => {
     const getData = async () => {
       try {
@@ -22,20 +34,12 @@ const Home = () => {
           params: { email: email }
         });
         setproducts(response.data);
-        let tempValue = 0;
-        response.data.forEach((item) => {
-          // const itemPrice = parseFloat(item.price);
-          // tempValue += itemPrice;
-          const itemPrice = parseFloat(item.price);
-          const itemQuantity = parseInt(item.quantity);
-          tempValue += itemPrice * itemQuantity;
-        });
-        settotalPrice(tempValue);
+        const totalPrice = calculateTotalPrice(response.data);
+        settotalPrice(totalPrice);
       } catch (error) {
         console.log("Error fetching data:", error);
       }
     };
-  
     getData();
   }, []);
   
@@ -62,9 +66,13 @@ const Home = () => {
       console.log('Quantity and price must be Numbers');
       showAlert(error.response.data.message)
     }
+
+    
     const response = await axios.get(`${window.location.origin}/api/products`, {
       params: { email: email }
     })
+    const updateTotalPrice = calculateTotalPrice(response.data)
+    settotalPrice(updateTotalPrice)
     setproducts(response.data)
   };
 
@@ -72,13 +80,16 @@ const Home = () => {
   // *********************************************Remove the deleted product from the local state***************************************
   const handleButtonClick = async (productId) => {
     try {
-      const response = await axios.delete(`${window.location.origin}/api/product/${productId}`, {email});
-      setLoading(true)
+      const response = await axios.delete(`${window.location.origin}/api/product/${productId}`, { email });
+      setLoading(true);
       if (response.data.success) {
-        setLoading(false)
-        setproducts(products.filter(product => product._id !== productId));
+        setLoading(false);
+        const updatedProducts = products.filter(product => product._id !== productId);
+        setproducts(updatedProducts);
+        const updatedTotalPrice = calculateTotalPrice(updatedProducts);
+        settotalPrice(updatedTotalPrice);
         console.log("Product deleted successfully");
-        showAlert("Product Deleted Sucessfully!!")
+        showAlert("Product Deleted Successfully!!");
       } else {
         console.log("Error deleting product:", response.data.message);
       }
@@ -86,6 +97,7 @@ const Home = () => {
       console.error('Error deleting product:', error);
     }
   };
+  
   // *********************************************edit product from the local state***************************************
   const managePopUP = async (item) => {
     setupdatingProduct(item)
@@ -97,7 +109,9 @@ const Home = () => {
     const response = await axios.get(`${window.location.origin}/api/products`, {
       params: { email: email }
     })
-    setproducts(response.data) 
+    setproducts(response.data)
+    const updateTotal = calculateTotalPrice(response.data)
+    settotalPrice(updateTotal)
   };
   function canclePopup(){
     setpopupComp(false)
@@ -200,7 +214,7 @@ const Home = () => {
                   </td>
                 </tr>
               )) }
-            {<tr className='flex items-center ml-1 font-bold text-lg h-[10vh] font-sans text-black'>Total Price <th className='ml-2'> {totalPrice}₹</th></tr> }
+            {<tr className='flex items-center ml-1 font-bold text-2xl h-[10vh] font-sans text-violet-700'>Total Price <th className='ml-2'> {totalPrice}₹</th></tr> }
             </tbody>
           </table>)
 }

@@ -7,6 +7,7 @@ import env from 'dotenv'
 import { register, login } from './routes/auth.js';
 import { addNewProduct, deleteProduct, getUserData, updateProduct } from './routes/userdata.js';
 env.config()
+//updated code
 const port = process.env.PORT || 3000;
 const app = express();
 app.use(cors());  

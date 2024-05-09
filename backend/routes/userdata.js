@@ -43,22 +43,30 @@ export const getUserData = async (req, res) => {
 //     res.status(500).json({ success: false, message: 'Internal Server Error' });
 //   }
 // };
+
 export const addNewProduct = async (req, res) => {
   try {
     await client.connect();
     const database = client.db('stock');
     const inventory = database.collection('inventory');
     const { productForm, email } = req.body;
-    if (typeof productForm.price !== 'number' || typeof productForm.quantity !== 'number') {
-      return res.status(400).json({ success: false, message: 'Price and quantity must be Numbers' });
+
+    // Explicitly parse price and quantity as numbers
+    const price = parseFloat(productForm.price);
+    const quantity = parseFloat(productForm.quantity);
+    // Check if parsing was successful
+    if (isNaN(price) || isNaN(quantity)) {
+      return res.status(400).json({ success: false, message: 'Price and quantity must be valid numbers' });
     }
+
     const productData = new ProductSchema({
-            slug: productForm.slug,
-            price: productForm.price,
-            quantity: productForm.quantity,
-            email: email,
-            createdBy: email
-          });
+      slug: productForm.slug,
+      price: price,
+      quantity: quantity,
+      email: email,
+      createdBy: email
+    });
+
     const product = await inventory.insertOne(productData);
     res.json({ product, ok: true });
   } catch (error) {
