@@ -11,15 +11,9 @@ const port = process.env.PORT || 3000;
 const app = express();
 app.use(cors());  
 app.use(bodyParser.json());
-
-
 app.get('/', (req, res) => {
   res.send("server is ready"); 
 });
-
-
-
-
 // Authentication routes
 app.post('/register', register);
 app.post('/login', login);
@@ -28,8 +22,6 @@ app.get('/api/products', getUserData);
 app.post('/api/product', addNewProduct);
 app.delete('/api/product/:id', deleteProduct);
 app.put('/api/productupdate/:id', updateProduct);
-
-
 
 app.listen(port, () => {
   console.log(`server is running at http://localhost:${port}`);
