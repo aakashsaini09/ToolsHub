@@ -11,7 +11,7 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       setloading(true)
-      const response = await axios.post(`http://localhost:8000/login`,{ email, password });
+      const response = await axios.post(`https://stock-7pu9.onrender.com/login`,{ email, password });
       if (response.status === 200) {
         if (response.data.success) {
           // console.log(response.data.others.username)

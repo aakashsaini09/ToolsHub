@@ -19,7 +19,7 @@ useEffect(() => {
     }
     const productId = product._id
     try {
-      const response = await axios.put(`${window.location.origin}/api/productupdate/${productId}`, productData);
+      const response = await axios.put(`https://stock-7pu9.onrender.com/api/productupdate/${productId}`, productData);
       setloading(false)
       if (response.data.success) {
         console.log("Product updated successfully");

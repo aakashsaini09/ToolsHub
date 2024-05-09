@@ -12,7 +12,7 @@ const Signup = () => {
     setloading(true)
     e.preventDefault(); 
     try {
-      const response = await axios.post(`http://localhost:8000/register`, { email, password, username });
+      const response = await axios.post(`https://stock-7pu9.onrender.com/register`, { email, password, username });
       setloading(false)
       if (response.data) {
         navigate('/home', { state: { email: email, username: username } });

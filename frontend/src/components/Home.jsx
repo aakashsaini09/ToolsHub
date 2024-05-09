@@ -30,7 +30,7 @@ const Home = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get(`${window.location.origin}/api/products`, {
+        const response = await axios.get(`https://stock-7pu9.onrender.com/api/products`, {
           params: { email: email }
         });
         setproducts(response.data);
@@ -49,7 +49,7 @@ const Home = () => {
   const addProduct = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${window.location.origin}/api/product`, {
+      const response = await axios.post(`https://stock-7pu9.onrender.com/api/product`, {
         productForm: productForm,
         email: email
       });
@@ -68,7 +68,7 @@ const Home = () => {
     }
 
     
-    const response = await axios.get(`${window.location.origin}/api/products`, {
+    const response = await axios.get(`https://stock-7pu9.onrender.com/api/products`, {
       params: { email: email }
     })
     const updateTotalPrice = calculateTotalPrice(response.data)
@@ -80,7 +80,7 @@ const Home = () => {
   // *********************************************Remove the deleted product from the local state***************************************
   const handleButtonClick = async (productId) => {
     try {
-      const response = await axios.delete(`${window.location.origin}/api/product/${productId}`, { email });
+      const response = await axios.delete(`https://stock-7pu9.onrender.com/api/product/${productId}`, { email });
       setLoading(true);
       if (response.data.success) {
         setLoading(false);
@@ -106,7 +106,7 @@ const Home = () => {
   const editStock = async () => {
     setpopupComp(false)
     showAlert("Product Updated!!!");
-    const response = await axios.get(`${window.location.origin}/api/products`, {
+    const response = await axios.get(`https://stock-7pu9.onrender.com/api/products`, {
       params: { email: email }
     })
     setproducts(response.data)
