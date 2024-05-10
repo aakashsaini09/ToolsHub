@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/About.css'
 import profile from '../styles/imagee.jpg'
 import ravi from '../styles/ravi.png'
+import about from '../styles/about.png'
 const About = () => {
     return (
         <>
@@ -16,7 +17,7 @@ const About = () => {
             <div className="sm:flex items-center w-full bg-white">
                 <div className="sm:w-1/2 p-10">
                     <div className="image object-center text-center">
-                        <img src="https://i.imgur.com/WbQnbas.png" />
+                        <img src={about} />
                     </div>
                 </div>
                 <div className="sm:w-1/2 p-5">
