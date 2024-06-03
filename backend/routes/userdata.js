@@ -137,3 +137,27 @@ export const updateProduct = async (req, res) => {
     await client.close();
   }
 };
+
+
+// not working code
+export const login = async (req, res) => {
+  try {
+    await client.connect();
+    const database = client.db('stock');
+    const inventory = database.collection('users');
+    const user = await inventory.findOne({ email: req.body.email });
+    if (!user) {
+      return res.status(500).json({success:false, message: "SignUp First" });
+    }
+    if (user.password == req.body.password) {
+      const { password, ...others } = user;
+      return res.status(200).json({success:true, others });
+    }
+    return res.status(400).json({success: false, message: "Password incorrect" });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ success: false, message: 'Internal Server Error' });
+  } finally {
+    await client.close();
+  }
+};
