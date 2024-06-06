@@ -64,21 +64,7 @@ const Signup = () => {
             ) : (
               <button type="submit" onClick={handleSignup} className="cursor-not-allowed mt-4 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-indigo-300 hover:bg-indigo-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" disabled={!username || !email || !password || !isEmailValid() || loading}>Signup</button>
             )}
-
-            {/* <button type="submit" onClick={handleSignup} className="mt-4 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" disabled={!username || !email || !password || !isEmailValid()}>Signup</button> */}
         </form>
-        <hr className='border-2' />
-        <div className="demo">
-          <h2 className='text-center text-violet-600'>Demo Account. (Click to copy)</h2>
-        <div>
-            <div className='mb-7'>
-                <label className='font-bold'>Email: </label>
-                <span onClick={() => copyToClipboard(`user@gmail.com`)} className="copyable bg-slate-500 text-white p-3 rounded-md flex">{demoEmail}</span>
-            </div>
-            <div className='my-7'>
-                <label className='font-bold'>Password:</label>
-                <span onClick={() => copyToClipboard(`1234`)} className="copyable bg-slate-500 text-white p-3 rounded-md flex">{1234}</span>
-            </div>
         </div>
         </div>
       </div>
