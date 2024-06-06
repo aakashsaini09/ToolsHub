@@ -30,7 +30,7 @@ const FooterPage = () => {
         </div>
 
         <div className="text-white w-full flex justify-center items-center mt-7">Made By Aakash &#169; 2024</div>
-        <div className="font-thin text-white w-full flex justify-center pb-7">This project is the pinnacle of stock management innovation for my final year.</div>
+        <div className="font-thin text-white w-full flex justify-center pb-7">This project is the pinnacle of stock management innovation.</div>
     </div>
     </>
   )
