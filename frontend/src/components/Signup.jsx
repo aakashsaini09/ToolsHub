@@ -50,7 +50,7 @@ const Signup = () => {
   return (<>
     <div className="text-center py-6">
         {alertMsg.length > 2 ? <div className="fixed top-0 left-0 right-0 z-50 bg-red-500 text-white p-4 text-center">{alertMsg}</div> : ""}
-      </div>
+    </div>
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <form>
@@ -67,8 +67,6 @@ const Signup = () => {
         </form>
         </div>
         </div>
-      </div>
-    </div>
   </>);
 };
 
