@@ -67,6 +67,7 @@ const Signup = () => {
         </form>
         </div>
         </div>
+        {/* There was a error. */}
   </>);
 };
 
