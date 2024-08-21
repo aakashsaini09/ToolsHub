@@ -5,13 +5,22 @@ const toolsList = [
         id: 1,
         name: "URL Shortr",
         des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
-        img: url_short
+        img: url_short,
+        link: '/url_short'
     },
     {
         id: 2,
         name: "Price Tracker",
         des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
-        img: price_tracker
+        img: price_tracker,
+        link: '/price_trackert'
+    },
+    {
+        id: 3,
+        name: "Price Tracker",
+        des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
+        img: price_tracker,
+        link: '/price_trackert'
     },
     
 ]
