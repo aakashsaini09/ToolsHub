@@ -1,11 +1,16 @@
 import './App.css'
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import HomePage from './common/pages/HomePage'
+import Url_short from './tools/url_short'
 function App() {
   return (
     <>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<HomePage/>}/>
+        <Route path='/url_short' element={<Url_short/>}/>
+      </Routes>
+      </BrowserRouter>
     </>
   )
 }
