@@ -1,5 +1,6 @@
 import url_short from './assets/url_short.svg'
 import price_tracker from './assets/price_tracker.svg'
+import ai from './assets/ai.svg'
 const toolsList = [
     {
         id: 1,
@@ -17,10 +18,17 @@ const toolsList = [
     },
     {
         id: 3,
-        name: "Price Tracker",
+        name: "AI Rewrite",
         des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
-        img: price_tracker,
-        link: '/price_trackert'
+        img: ai,
+        link: '/ai_bot'
+    },
+    {
+        id: 4,
+        name: "Password Generator",
+        des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
+        img: ai,
+        link: '/pass_gen'
     },
     
 ]
