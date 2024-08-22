@@ -19,6 +19,13 @@ const toolsList = [
         link: '/pass_gen'
     },
     {
+        id: 5,
+        name: "Color Picker",
+        des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
+        img: colorPicker,
+        link: '/colorPicker'
+    },
+    {
         id: 3,
         name: "Price Tracker",
         des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
@@ -31,13 +38,6 @@ const toolsList = [
         des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
         img: ai,
         link: '/ai_bot'
-    },
-    {
-        id: 5,
-        name: "Color Picker",
-        des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
-        img: colorPicker,
-        link: '/colorPicker'
     },
     {
         id: 6,
