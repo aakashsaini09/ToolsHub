@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 import toast from "react-hot-toast"
+import MiniNav from "../../common/components/MiniNav"
 const Url_short = () => {
     const [userUrl, setuserUrl] = useState('')
     const [sortedUrl, setsortedUrl] = useState('')
@@ -23,11 +24,12 @@ const Url_short = () => {
         }
     }
     function copyFunction() {
-        toast.success("URL Copyed!!")
+        toast.success("URL Copied!!")
         navigator.clipboard.writeText(sortedUrl); 
     }
   return (
     <>
+    <MiniNav/>
       <div className="main h-[100vh] w-[100vw] bg-gray-900 flex justify-center items-center">
 
       <div className="relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border">

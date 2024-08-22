@@ -1,6 +1,7 @@
 import { GeneratePassword } from "js-generate-password";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import MiniNav from "../../common/components/MiniNav";
 const PassGen = () => {
   const [password, setpassword] = useState('')
   const [size, setSize] = useState(10)
@@ -30,11 +31,12 @@ const PassGen = () => {
     }, [size, symbol, number, uppercase, lowercase])
 
     function copyFunction() {
-      toast.success("Password Copyed!!")
+      toast.success("Password Copied!!")
       navigator.clipboard.writeText(password); 
   }
   return (
     <>
+    <MiniNav/>
     <div className="main h-[100vh] w-[100vw] bg-gray-400 flex items-center justify-center">
       <div className="card min-h-[70vh] min-w-[55vw] bg-white">
 
