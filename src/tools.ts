@@ -46,6 +46,5 @@ const toolsList = [
         img: IpAddress,
         link: '/ipaddress'
     },
-    
 ]
 export default toolsList

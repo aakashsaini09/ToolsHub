@@ -6,6 +6,8 @@ import { Toaster } from 'react-hot-toast'
 import PriceTracker from './tools/price_tracker'
 import AiBot from './tools/ai_bot'
 import PassGen from './tools/passwordGen'
+import IPtracker from './tools/IPtracker'
+import ColorPickerComp from './tools/colorPicker'
 function App() {
   return (
     <>
@@ -20,6 +22,8 @@ function App() {
         <Route path='/price_trackert' element={<PriceTracker/>}/>
         <Route path='/ai_bot' element={<AiBot/>}/>
         <Route path='/pass_gen' element={<PassGen/>}/>
+        <Route path='/ipaddress' element={<IPtracker/>}/>
+        <Route path='/colorPicker' element={<ColorPickerComp/>}/>
       </Routes>
       </BrowserRouter>
     </>
