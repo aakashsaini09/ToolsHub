@@ -33,7 +33,6 @@ const PassGen = () => {
       toast.success("Password Copyed!!")
       navigator.clipboard.writeText(password); 
   }
-  console.log("symbol is: ", symbol)
   return (
     <>
     <div className="main h-[100vh] w-[100vw] bg-gray-400 flex items-center justify-center">
@@ -48,17 +47,13 @@ const PassGen = () => {
             <i onClick={GenerateFunction} className="fa-solid fa-arrows-rotate cursor-pointer text-3xl ml-5"></i>
           </div>
         </div>
-
         <div className="pt-10 px-4 text-4xl text-black font-extrabold border-b border-gray-200">
         Customize your password
         </div>
+        <div className="customize grid md:grid-cols-3 w-full">
 
 
-        <div className="customize grid grid-cols-3 w-full">
-
-
-
-          <div className="length min-h-80 flex flex-col justify-center items-center">
+          <div className="length min-h-4 md:min-h-80 flex flex-col justify-center items-center">
             <div className="text-lg font-bold relative -top-[74px] -left-2">Password Length 🔑</div>
             <div className="flex justify-around w-full px-10 items-center">
               <input type="number" className="h-16 text-lg pl-3 w-16 outline-none border-none bg-gray-200 rounded-md" value={size} onChange={(e) => {setSize(Number(e.target.value))}} />
@@ -66,7 +61,9 @@ const PassGen = () => {
             </div>
           </div>
 
-          <div className="symbol min-h-80 flex flex-col justify-center ">
+
+
+          <div className="symbol min-h-4 md:min-h-80 flex flex-col justify-center ">
           <div className="text-lg font-bold relative -top-10 -left-2">Easy to Hard 🛡️</div>
             <div className="w-full flex flex-col font-bold text-xl mx-auto">
               <div className="my-5">
@@ -82,7 +79,7 @@ const PassGen = () => {
 
 
 
-          <div className="symbol min-h-80 flex flex-col justify-center ">
+          <div className="symbol min-h-4 md:min-h-80 flex flex-col justify-center ">
           <div className="text-lg font-bold relative -top-10 -left-2">Characters 🔐</div>
             <div className="w-full flex flex-col font-bold text-xl mx-auto">
               <div className="my-5">
@@ -95,6 +92,9 @@ const PassGen = () => {
               </div>
             </div>
           </div>
+
+
+
         </div>
       </div>
     </div>
