@@ -39,7 +39,7 @@ const PassGen = () => {
       <div className="card min-h-[70vh] min-w-[55vw] bg-white">
 
         <div className="password bg-black text-white font-bold text-3xl flex justify-between w-full min-h-24 p-6">
-          <div className=" text-5xl pl-10">
+          <div className=" text-5xl pl-10 text-green-400">
             {password}
           </div>
           <div className="icons">

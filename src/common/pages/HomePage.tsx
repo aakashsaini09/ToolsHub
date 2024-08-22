@@ -8,7 +8,7 @@ const HomePage = () => {
       <Navbar/>
       <div className="main">
         <div className="top"></div>
-        <div className="list w-full min-h-[100vh] gap-4 bg-black flex px-5">
+        <div className="list w-full min-h-[100vh] gap-10 bg-black flex px-5 flex-wrap justify-center py-10">
             {toolsList.map((tool) => {
                 return <div key={tool.id} className="w-72 h-96 max-w-sm bg-white rounded-lg shadow flex flex-col justify-between">
                     <a href="#" className="w-full flex justify-center items-center text-center">
