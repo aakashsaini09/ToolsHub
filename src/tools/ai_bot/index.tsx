@@ -1,26 +1,26 @@
 
-import axios from 'axios';
+// import axios from 'axios';
 const AiBot = () => {
 
-    async function APIFunction(text: string) {
-        try {
-            const response = await axios.post(
-                'https://api.sapling.ai/api/v1/edits',
-                {
-                    "key": 'O79QF5BY6II7UQDFQRAMA7N2JYYSWPVT', // replace with your API key
-                    "session_id": 'test session',
-                    text,
-                },
-            );
-            const {status, data} = response;
-            console.log({status});
-            console.log("response:  ", response)
-            console.log(JSON.stringify(data, null, 4));
-        } catch (err: any) {
-            const { msg } = err.response.data;
-            console.log({err: msg});
-        }
-    }
+    // async function APIFunction(text: string) {
+    //     try {
+    //         const response = await axios.post(
+    //             'https://api.sapling.ai/api/v1/edits',
+    //             {
+    //                 "key": 'O79QF5BY6II7UQDFQRAMA7N2JYYSWPVT', // replace with your API key
+    //                 "session_id": 'test session',
+    //                 text,
+    //             },
+    //         );
+    //         const {status, data} = response;
+    //         console.log({status});
+    //         console.log("response:  ", response)
+    //         console.log(JSON.stringify(data, null, 4));
+    //     } catch (err: any) {
+    //         const { msg } = err.response.data;
+    //         console.log({err: msg});
+    //     }
+    // }
     
   return (
     <>
