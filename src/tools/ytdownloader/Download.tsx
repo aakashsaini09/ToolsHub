@@ -21,22 +21,24 @@ const Download = ({id}: any) => {
     const [videoData, setVideoData] = useState<VideoResponse | null>(null);
     setVideoId(id)
     const mainfunction = async()=> {
-    const options = {
-        method: 'GET',
-        url: 'https://ytstream-download-youtube-videos.p.rapidapi.com/dl',
-        params: {id: videoId},
-        headers: {
-          'x-rapidapi-key': 'a4d702d09amsh7b6d61652897a15p157f4fjsne2cf8f30c1d0',
-          'x-rapidapi-host': 'ytstream-download-youtube-videos.p.rapidapi.com'
-        }
-      };
+        
+    // const options = {
+    //     method: 'GET',
+    //     url: 'https://ytstream-download-youtube-videos.p.rapidapi.com/dl',
+    //     params: {id: videoId},
+    //     headers: {
+    //       'x-rapidapi-key': 'a4d702d09amsh7b6d61652897a15p157f4fjsne2cf8f30c1d0',
+    //       'x-rapidapi-host': 'ytstream-download-youtube-videos.p.rapidapi.com'
+    //     }
+    //   };
       
-      try {
-          const response = await axios.request(options);
-          setVideoData(response.data)
-      } catch (error) {
-          console.error(error);
-      }
+    //   try {
+    //       const response = await axios.request(options);
+    //       setVideoData(response.data)
+    //   } catch (error) {
+    //       console.error(error);
+    //   }
+    console.log("videoId: ", videoId)
     }
     useEffect(() => {
       mainfunction()
