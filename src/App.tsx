@@ -8,6 +8,7 @@ import AiBot from './tools/ai_bot'
 import PassGen from './tools/passwordGen'
 import IPtracker from './tools/IPtracker'
 import ColorPickerComp from './tools/colorPicker'
+import YtVideo from './tools/ytdownloader'
 function App() {
   return (
     <>
@@ -24,6 +25,7 @@ function App() {
         <Route path='/pass_gen' element={<PassGen/>}/>
         <Route path='/ipaddress' element={<IPtracker/>}/>
         <Route path='/colorPicker' element={<ColorPickerComp/>}/>
+        <Route path='/ytviddownload' element={<YtVideo/>}/>
       </Routes>
       </BrowserRouter>
     </>

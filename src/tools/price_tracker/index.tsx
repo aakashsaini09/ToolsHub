@@ -1,8 +1,9 @@
 
 const PriceTracker = () => {
+
   return (
     <>
-      priceTracker
+      price Tracker
     </>
   )
 }

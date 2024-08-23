@@ -46,5 +46,12 @@ const toolsList = [
         img: IpAddress,
         link: '/ipaddress'
     },
+    {
+        id: 7,
+        name: "YT Video Downloader",
+        des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
+        img: IpAddress,
+        link: '/ytviddownload'
+    },
 ]
 export default toolsList
