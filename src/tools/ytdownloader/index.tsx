@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Download from './Download';
 import toast from 'react-hot-toast';
-
 interface VideoResponse {
   status: string;
   title: string;
@@ -21,46 +19,48 @@ interface VideoResponse {
 }
 
 const YtVideo: React.FC = () => {
-    const [videoId, setVideoId] = useState<string>('');
-    const [realId, setrealId] = useState<string | null>('')
+    const [orgUrl, setOrgUrl] = useState<string>('');
+    const [videoId, setvideoId] = useState<string | null>('')
     const [videoData, setVideoData] = useState<VideoResponse | null>(null);
-    const extractVideoId = (url: string): string | null => {
+
+    // logic to extract video id from url (orgUrl from videoId) line num 27-42.
+    const extractorgUrl = (url: string): string | null => {
         const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
         const match = url.match(regex);
         return match ? match[1] : null;
       };
 
       const handleExtract = () => {
-        const id = extractVideoId(videoId);
+        const id = extractorgUrl(orgUrl);
         const value = id;
-        setrealId(value);
+        setvideoId(value);
         mainfunction()
       };
       const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setVideoId(e.target.value);
+        setOrgUrl(e.target.value);
       };
 
       // Logic for download videos
       const mainfunction = async()=> {
-        // https://youtu.be/vI57g-iGPlY?si=IvgXA2tDkn7TjAIv
         // @ts-ignore
-        if(realId?.length <= 3 || realId?.length == undefined){
+        if(videoId?.length <= 3 || videoId?.length == undefined){
           toast.error("something is wrong")
         }else{
         const options = {
             method: 'GET',
             url: 'https://ytstream-download-youtube-videos.p.rapidapi.com/dl',
-            params: {id: realId},
+            params: {id: videoId},
             headers: {
               'x-rapidapi-key': 'a4d702d09amsh7b6d61652897a15p157f4fjsne2cf8f30c1d0',
               'x-rapidapi-host': 'ytstream-download-youtube-videos.p.rapidapi.com'
             }
           };
           try {
-            // console.log("realId is:  ", realId)
+            // console.log("videoId is:  ", videoId)
               const response = await axios.request(options);
               setVideoData(response.data)
           } catch (error) {
+            toast.error("Something went wrong! Please try again.")
               console.error(error);
           }
         }}
@@ -76,11 +76,11 @@ const YtVideo: React.FC = () => {
             </div>
             
             <div className="search w-[60%] flex"> 
-                <input className='bg-gray-50 border-none text-gray-900 text-sm rounded-lg outline-none block mx-auto p-2.5 w-full' placeholder='Paste Video link here' type="text" value={videoId} onChange={handleInputChange} />
+                <input className='bg-gray-50 border-none text-gray-900 text-sm rounded-lg outline-none block mx-auto p-2.5 w-full' placeholder='Paste Video link here' type="text" value={orgUrl} onChange={handleInputChange} />
                 <button className='text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 mx-3' onClick={handleExtract}>Download</button>
             </div>
 {/* render api data from here */}
-          {videoData &&  (<div className="video w-full mx-auto flex flex-col justify-center items-center my-5">
+          {videoData ? (<div className="video w-full mx-auto flex flex-col justify-center items-center my-5">
             {videoData.thumbnail.map((i) => {
               if(i.width === 480) {
               return <div key={i.width}>
@@ -114,7 +114,7 @@ const YtVideo: React.FC = () => {
                       })}
                     </div>
                 </div>
-            </div>) }
+            </div>): (<div className='mt-6 font-serif '>Nothing to render!</div>) }
         </div>
         <footer className='min-h-48 w-full'>
 
