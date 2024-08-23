@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Download from './Download';
+import toast from 'react-hot-toast';
 
 interface VideoResponse {
   status: string;
@@ -42,23 +43,27 @@ const YtVideo: React.FC = () => {
       // Logic for download videos
       const mainfunction = async()=> {
         // https://youtu.be/vI57g-iGPlY?si=IvgXA2tDkn7TjAIv
+        // @ts-ignore
+        if(realId?.length <= 3 || realId?.length == undefined){
+          toast.error("something is wrong")
+        }else{
         const options = {
             method: 'GET',
             url: 'https://ytstream-download-youtube-videos.p.rapidapi.com/dl',
-            params: {id: "vI57g-iGPlY"},
+            params: {id: realId},
             headers: {
               'x-rapidapi-key': 'a4d702d09amsh7b6d61652897a15p157f4fjsne2cf8f30c1d0',
               'x-rapidapi-host': 'ytstream-download-youtube-videos.p.rapidapi.com'
             }
           };
-          
           try {
+            // console.log("realId is:  ", realId)
               const response = await axios.request(options);
               setVideoData(response.data)
           } catch (error) {
               console.error(error);
           }
-        }
+        }}
         const renderedLabels = new Set<string>();
 
   return (
@@ -67,7 +72,7 @@ const YtVideo: React.FC = () => {
 
             <div className="top">
                 <div className="font-bold text-3xl font-mono pt-6">YouTube Video Downloader</div>
-                <p className='font-serif mx-auto text-center mb-6 mt-2'>download youtube videos in different quality for free.😉</p>
+                <p className='font-serif mx-auto text-center mb-6 mt-2'>download youtube videos, convert Youtube video to mp3/mp4 for free. 😉</p>
             </div>
             
             <div className="search w-[60%] flex"> 
@@ -76,7 +81,13 @@ const YtVideo: React.FC = () => {
             </div>
 {/* render api data from here */}
           {videoData &&  (<div className="video w-full mx-auto flex flex-col justify-center items-center my-5">
-                <img className='' src="https://i.ytimg.com/vi/jOv8jb6rCU0/sddefault.jpg" alt="" />
+            {videoData.thumbnail.map((i) => {
+              if(i.width === 480) {
+              return <div key={i.width}>
+                <img className='' src={i.url} alt="" />
+                </div> 
+              }
+            })}
                 <div className='text-xl font-extrabold'>{videoData.title}</div>
                 <div className="flex items-center">
                     <div className="bg-blue-700 h-16 w-16 rounded-full text-xl text-center flex justify-center items-center text-white font-bold mr-3">YT</div>
@@ -97,7 +108,7 @@ const YtVideo: React.FC = () => {
                         renderedLabels.add(label);
                         return (
                           <a key={link.bitrate} href={link.url} target='_blank' rel='noopener noreferrer' className='text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 mx-3'>
-                            {label} </a>);
+                            {label} <i className="fa-solid fa-download ml-2"></i></a>);
                             }
                       return null;
                       })}
