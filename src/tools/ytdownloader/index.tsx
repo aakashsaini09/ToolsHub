@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import image from '../assets/ytImage.svg'
 interface VideoResponse {
   status: string;
   title: string;
@@ -22,7 +23,7 @@ const YtVideo: React.FC = () => {
     const [orgUrl, setOrgUrl] = useState<string>('');
     const [videoId, setvideoId] = useState<string | null>('')
     const [videoData, setVideoData] = useState<VideoResponse | null>(null);
-
+    const [loading, setloading] = useState(false)
     // logic to extract video id from url (orgUrl from videoId) line num 27-42.
     const extractorgUrl = (url: string): string | null => {
         const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
@@ -42,9 +43,11 @@ const YtVideo: React.FC = () => {
 
       // Logic for download videos
       const mainfunction = async()=> {
+        setloading(true)
         // @ts-ignore
         if(videoId?.length <= 3 || videoId?.length == undefined){
-          toast.error("something is wrong")
+          toast.error("something went wrong, Please try again!")
+          setloading(false)
         }else{
         const options = {
             method: 'GET',
@@ -59,9 +62,11 @@ const YtVideo: React.FC = () => {
             // console.log("videoId is:  ", videoId)
               const response = await axios.request(options);
               setVideoData(response.data)
-          } catch (error) {
-            toast.error("Something went wrong! Please try again.")
+              setloading(false)
+            } catch (error) {
+              toast.error("Something went wrong! Please try again.")
               console.error(error);
+              setloading(false)
           }
         }}
         const renderedLabels = new Set<string>();
@@ -71,15 +76,15 @@ const YtVideo: React.FC = () => {
         <div className="card w-4/5 min-h-[70vh] bg-gray-300 flex flex-col items-center rounded-lg">
 
             <div className="top">
-                <div className="font-bold text-3xl font-mono pt-6">YouTube Video Downloader</div>
-                <p className='font-serif mx-auto text-center mb-6 mt-2'>download youtube videos, convert Youtube video to mp3/mp4 for free. 😉</p>
+                <div className="font-bold text-3xl font-mono pt-6 flex justify-center text-center">YouTube Video Downloader <img className='w-8 flex justify-center items-center' src={image} alt="" /></div>
+                <p className='font-serif mx-auto text-center mb-6 mt-2'>download youtube videos, convert Youtube video to mp3/mp4 for free.</p>
             </div>
             
             <div className="search w-[60%] flex"> 
                 <input className='bg-gray-50 border-none text-gray-900 text-sm rounded-lg outline-none block mx-auto p-2.5 w-full' placeholder='Paste Video link here' type="text" value={orgUrl} onChange={handleInputChange} />
-                <button className='text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 mx-3' onClick={handleExtract}>Download</button>
+                <button className={`text-white bg-blue-700 hover:bg-blue-800 ${loading ? 'cursor-not-allowed': 'cursor-pointer'} font-medium rounded-lg text-sm px-5 py-2.5 mx-3`} onClick={handleExtract} disabled={loading ? true : false}>Download</button>
             </div>
-{/* render api data from here */}
+            {/* render api data from here */}
           {videoData ? (<div className="video w-full mx-auto flex flex-col justify-center items-center my-5">
             {videoData.thumbnail.map((i) => {
               if(i.width === 480) {
@@ -91,7 +96,7 @@ const YtVideo: React.FC = () => {
                 <div className='text-xl font-extrabold'>{videoData.title}</div>
                 <div className="flex items-center">
                     <div className="bg-blue-700 h-16 w-16 rounded-full text-xl text-center flex justify-center items-center text-white font-bold mr-3">YT</div>
-                    <div className="font-extrabold text-lg">{videoData.channelTitle}</div>
+                    <div className="font-extrabold text-4xl text-blue-700">{videoData.channelTitle}</div>
                 </div>
                 <div className='w-full pl-48 pr-10'>
                     <details className='cursor-pointer'>
