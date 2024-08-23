@@ -20,10 +20,10 @@ const toolsList = [
     },
     {
         id: 5,
-        name: "Color Picker",
+        name: "YT Video Downloader",
         des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
-        img: colorPicker,
-        link: '/colorPicker'
+        img: IpAddress,
+        link: '/ytviddownload'
     },
     {
         id: 3,
@@ -48,10 +48,10 @@ const toolsList = [
     },
     {
         id: 7,
-        name: "YT Video Downloader",
+        name: "Color Picker",
         des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
-        img: IpAddress,
-        link: '/ytviddownload'
+        img: colorPicker,
+        link: '/colorPicker',
     },
 ]
 export default toolsList

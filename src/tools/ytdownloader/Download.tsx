@@ -38,7 +38,6 @@ const Download = ({id}: any) => {
     //   } catch (error) {
     //       console.error(error);
     //   }
-    console.log("videoId: ", videoId)
     }
     useEffect(() => {
       mainfunction()
