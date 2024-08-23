@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import image from '../assets/ytImage.svg'
+import MiniNav from '../../common/components/MiniNav';
 interface VideoResponse {
   status: string;
   title: string;
@@ -73,7 +74,10 @@ const YtVideo: React.FC = () => {
 
   return (
     <div className="main min-h-[100vh] w-full bg-gray-500 flex flex-col justify-center items-center">
-        <div className="card w-4/5 min-h-[70vh] bg-gray-300 flex flex-col items-center rounded-lg">
+      <div className='w-full mb-8 block'>
+        <MiniNav/>
+      </div>
+      <div className="card w-4/5 min-h-[70vh] bg-gray-300 flex flex-col items-center rounded-lg mt-10">
 
             <div className="top">
                 <div className="font-bold text-3xl font-mono pt-6 flex justify-center text-center">YouTube Video Downloader <img className='w-8 flex justify-center items-center' src={image} alt="" /></div>
@@ -120,10 +124,9 @@ const YtVideo: React.FC = () => {
                     </div>
                 </div>
             </div>): (<div className='mt-6 font-serif '>Nothing to render!</div>) }
-        </div>
-        <footer className='min-h-48 w-full'>
-
-        </footer>
+      </div>
+      <footer className='min-h-48 w-full'>
+      </footer>
     </div>
   );
 };

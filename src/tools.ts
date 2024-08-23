@@ -22,7 +22,7 @@ const toolsList = [
     {
         id: 2,
         name: "Password Generator",
-        des: "Generate strong & secure passwords for all your online accounts with our random password generator. Mix letters, numbers and symbols to make it virtually impossible to guess.",
+        des: "Generate strong & secure passwords for all your online accounts with our password generator. Mix letters, numbers and symbols to make it impossible to guess.",
         img: ai,
         link: '/pass_gen'
     },

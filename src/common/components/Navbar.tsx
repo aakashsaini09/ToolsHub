@@ -18,13 +18,13 @@ const Navbar = () => {
           <Link to="/" className="block py-2 px-3 rounded md:hover:bg-transparent md:border-0 md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 hover:bg-transparent">All Tools</Link>
         </li>
         <li>
-          <Link to="/" className="block py-2 px-3 rounded md:hover:bg-transparent md:border-0 md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 hover:bg-transparent">AI Tools</Link>
+          <Link to="/contributors" className="block py-2 px-3 rounded md:hover:bg-transparent md:border-0 md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 hover:bg-transparent">Contributors</Link>
         </li>
         <li>
-          <Link to="/" className="block py-2 px-3 rounded md:hover:bg-transparent md:border-0 md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 hover:bg-transparent">PDF tools</Link>
+          <Link to="/reqtool" className="block py-2 px-3 rounded md:hover:bg-transparent md:border-0 md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 hover:bg-transparent">Request a Tool</Link>
         </li>
         <li>
-          <Link to="/" className="block py-2 px-3 rounded md:hover:bg-transparent md:border-0 md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 hover:bg-transparent">Web3 tools</Link>
+          <Link to="/contact" className="block py-2 px-3 rounded md:hover:bg-transparent md:border-0 md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 hover:bg-transparent">Contact</Link>
         </li>
       </ul>
     </div>

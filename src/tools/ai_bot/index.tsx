@@ -24,7 +24,8 @@ const AiBot = () => {
     
   return (
     <>
-      <button onClick={() => APIFunction("What and how to can I do in this suituation bro?")} className='px-5 py-3 bg-purple-800 text-white m-5'>Click</button>
+      {/* <button onClick={() => APIFunction("What and how to can I do in this suituation bro?")} className='px-5 py-3 bg-purple-800 text-white m-5'>Click</button> */}
+      <div className='bg-slate-700 min-h-[100vh] w-full text-white'>Ai Rewrite</div>
     </>
   )
 }
