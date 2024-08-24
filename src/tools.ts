@@ -4,6 +4,7 @@ import ai from './assets/ai.svg'
 import colorPicker from './assets/colorPicker.svg'
 import IpAddress from './assets/IPAddress.svg'
 import ytDownloader from './assets/ytdowloader.svg'
+import passGen from './assets/passGen.svg'
 const toolsList = [
     {
         id: 1,
@@ -23,7 +24,7 @@ const toolsList = [
         id: 2,
         name: "Password Generator",
         des: "Generate strong & secure passwords for all your online accounts with our password generator. Mix letters, numbers and symbols to make it impossible to guess.",
-        img: ai,
+        img: passGen,
         link: '/pass_gen'
     },
     {
