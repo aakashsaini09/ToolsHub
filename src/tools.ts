@@ -2,6 +2,7 @@ import url_short from './assets/url_short.svg'
 import price_tracker from './assets/price_tracker.svg'
 import ai from './assets/ai.svg'
 import colorPicker from './assets/colorPicker.svg'
+import typing from './assets/typing.svg'
 import IpAddress from './assets/IPAddress.svg'
 import ytDownloader from './assets/ytdowloader.svg'
 import passGen from './assets/passGen.svg'
@@ -42,6 +43,13 @@ const toolsList = [
         link: '/price_trackert'
     },
     {
+        id: 6,
+        name: "Typing Test",
+        des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
+        img: typing,
+        link: '/typingtest'
+    },
+    {
         id: 4,
         name: "AI Rewrite",
         des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
@@ -49,7 +57,7 @@ const toolsList = [
         link: '/ai_bot'
     },
     {
-        id: 6,
+        id: 8,
         name: "IP Address Lookup",
         des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
         img: IpAddress,

@@ -11,6 +11,7 @@ import YtVideo from './tools/ytdownloader'
 import Contributors from './common/pages/Contributors'
 import Contact from './common/pages/Contact'
 import ReqTool from './common/pages/ReqTool'
+import TypingTest from './tools/typingTest'
 function App() {
   return (
     <div>
@@ -28,6 +29,7 @@ function App() {
         <Route path='/ipaddress' element={<IPtracker/>}/>
         <Route path='/colorPicker' element={<ColorPickerComp/>}/>
         <Route path='/ytviddownload' element={<YtVideo/>}/>
+        <Route path='/typingtest' element={<TypingTest/>}/>
       </Routes>
       </BrowserRouter>
     </div>
