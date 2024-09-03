@@ -12,6 +12,7 @@ import Contributors from './common/pages/Contributors'
 import Contact from './common/pages/Contact'
 import ReqTool from './common/pages/ReqTool'
 import TypingTest from './tools/typingTest'
+import LoveCalculator from './tools/loveCal'
 function App() {
   return (
     <div>
@@ -30,6 +31,7 @@ function App() {
         <Route path='/colorPicker' element={<ColorPickerComp/>}/>
         <Route path='/ytviddownload' element={<YtVideo/>}/>
         <Route path='/typingtest' element={<TypingTest/>}/>
+        <Route path='/lovecal' element={<LoveCalculator/>}/>
       </Routes>
       </BrowserRouter>
     </div>

@@ -36,6 +36,13 @@ const toolsList = [
         link: '/colorPicker',
     },
     {
+        id: 8,
+        name: "Love Calculator",
+        des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
+        img: colorPicker,
+        link: '/lovecal',
+    },
+    {
         id: 3,
         name: "Price Tracker",
         des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
@@ -57,7 +64,7 @@ const toolsList = [
         link: '/ai_bot'
     },
     {
-        id: 8,
+        id: 9,
         name: "IP Address Lookup",
         des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
         img: IpAddress,
