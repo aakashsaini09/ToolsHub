@@ -6,6 +6,7 @@ import typing from './assets/typing.svg'
 import IpAddress from './assets/IPAddress.svg'
 import ytDownloader from './assets/ytdowloader.svg'
 import passGen from './assets/passGen.svg'
+import love from './assets/love.svg'
 const toolsList = [
     {
         id: 1,
@@ -29,18 +30,18 @@ const toolsList = [
         link: '/pass_gen'
     },
     {
+        id: 8,
+        name: "Love Calculator",
+        des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
+        img: love,
+        link: '/lovecal',
+    },
+    {
         id: 7,
         name: "Color Picker",
         des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
         img: colorPicker,
         link: '/colorPicker',
-    },
-    {
-        id: 8,
-        name: "Love Calculator",
-        des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
-        img: colorPicker,
-        link: '/lovecal',
     },
     {
         id: 3,
