@@ -12,10 +12,15 @@ import Contributors from './common/pages/Contributors'
 import Contact from './common/pages/Contact'
 import ReqTool from './common/pages/ReqTool'
 import TypingTest from './tools/typingTest'
+import {RecoilRoot} from 'recoil'
 import LoveCalculator from './tools/loveCal'
+import GithubHome from './tools/githubProfile/GithubHome'
+import MyProfile from './tools/githubProfile/MyProfile'
+import Profile from './tools/githubProfile/profile'
 function App() {
   return (
     <div>
+          <RecoilRoot>
     <Toaster position='top-right'></Toaster>
       <BrowserRouter>
       <Routes>
@@ -32,8 +37,14 @@ function App() {
         <Route path='/ytviddownload' element={<YtVideo/>}/>
         <Route path='/typingtest' element={<TypingTest/>}/>
         <Route path='/lovecal' element={<LoveCalculator/>}/>
+
+        <Route path="/githubhome" element={<GithubHome />} />
+        <Route path="/myprofile" element={<MyProfile/>} />
+        <Route path="/:username" element={<Profile />} />
       </Routes>
       </BrowserRouter>
+
+      </RecoilRoot>
     </div>
   )
 }
