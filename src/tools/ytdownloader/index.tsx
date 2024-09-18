@@ -47,7 +47,7 @@ const YtVideo: React.FC = () => {
         setloading(true)
         // @ts-ignore
         if(videoId?.length <= 3 || videoId?.length == undefined){
-          toast.error("something went wrong, Please try again!")
+          toast.error("API is busy, Try one more time.")
           setloading(false)
         }else{
         const options = {
@@ -63,6 +63,7 @@ const YtVideo: React.FC = () => {
             // console.log("videoId is:  ", videoId)
               const response = await axios.request(options);
               setVideoData(response.data)
+              console.log(response.data)
               setloading(false)
             } catch (error) {
               toast.error("Something went wrong! Please try again.")
@@ -73,7 +74,7 @@ const YtVideo: React.FC = () => {
         const renderedLabels = new Set<string>();
 
   return (
-    <div className="main min-h-[100vh] w-full bg-gray-500 flex flex-col justify-center items-center">
+    <div className="main min-h-[100vh] w-full bg-gray-900 flex flex-col justify-center items-center">
       <div className='w-full mb-8 block'>
         <MiniNav/>
       </div>
@@ -90,13 +91,11 @@ const YtVideo: React.FC = () => {
             </div>
             {/* render api data from here */}
           {videoData ? (<div className="video w-full mx-auto flex flex-col justify-center items-center my-5">
-            {videoData.thumbnail.map((i) => {
-              if(i.width === 480) {
-              return <div key={i.width}>
-                <img className='' src={i.url} alt="" />
-                </div> 
-              }
-            })}
+            {videoData.thumbnail.reduce((biggest, current) => (current.width > biggest.width ? current : biggest), videoData.thumbnail[0])
+            ? (<div key={'biggest'}>
+                <img className='w-[80%] mx-auto' src={videoData.thumbnail.reduce((biggest, current) => (current.width > biggest.width ? current : biggest), videoData.thumbnail[0]).url} alt="" />
+              </div>) : null}
+
                 <div className='text-xl font-extrabold'>{videoData.title}</div>
                 <div className="flex items-center">
                     <div className="bg-blue-700 h-16 w-16 rounded-full text-xl text-center flex justify-center items-center text-white font-bold mr-3">YT</div>

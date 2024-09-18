@@ -64,7 +64,7 @@ const AiBot = () => {
     </div>
         <div className="overflow-y-scroll pb-10 pt-2 text-2xl h-[93vh] static bg-[#212121] rounded-md ">
           {chat.length == 0 ? "" : chat.map((i, index) => {
-            return <div key={index} className="pl-7 w-[70vw] whitespace-pre-wrap bg-[#212121] text-[#d5c6bb] font-sans my-4 static text-base mb-4">
+            return <div key={index} className="pl-7 w-[70vw] whitespace-pre-wrap bg-[#212121] text-[#d5c6bb] font-mono my-4 static text-base mb-4">
               <span className="relative -left-7 -bottom-6 text-white text-xl"><RiRobot2Fill /></span>{i.text}
             </div>
           })}

@@ -11,7 +11,7 @@ const HomePage = () => {
         <div className="top"></div>
         <div className="list w-full min-h-[100vh] gap-10 bg-gray-900 flex px-5 flex-wrap justify-center py-10">
             {toolsList.map((tool) => {
-                return <div key={tool.id} className="w-72 h-96 max-w-sm bg-slate-500 rounded-lg shadow flex flex-col justify-between">
+                return <div key={tool.id} className="w-72 h-96 max-w-sm bg-slate-200 rounded-lg shadow flex flex-col justify-between">
                     <a href="#" className="w-full flex justify-center items-center text-center">
                         <img className="rounded-t-lg pt-6" src={tool.img} alt="" />
                     </a>

@@ -25,7 +25,7 @@ const toolsList = [
     },
     {
         id: 3,
-        name: "AI Rewrite",
+        name: "AI ChatBot",
         des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
         img: ai,
         link: '/ai_bot'
