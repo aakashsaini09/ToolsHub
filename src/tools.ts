@@ -25,6 +25,13 @@ const toolsList = [
     },
     {
         id: 3,
+        name: "AI Rewrite",
+        des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
+        img: ai,
+        link: '/ai_bot'
+    },
+    {
+        id: 9,
         name: "URL Shortr",
         des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
         img: url_short,
@@ -65,13 +72,7 @@ const toolsList = [
         img: typing,
         link: '/typingtest'
     },
-    {
-        id: 9,
-        name: "AI Rewrite",
-        des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
-        img: ai,
-        link: '/ai_bot'
-    },
+    
     {
         id: 10,
         name: "IP Address Lookup",
