@@ -31,7 +31,12 @@ const Url_short = () => {
     <>
     <MiniNav/>
       <div className="main h-[100vh] w-[100vw] bg-gray-900 flex justify-center items-center">
-
+      { loading && <div id="static-modal" data-modal-backdrop="static" tabIndex={-1} aria-hidden="true"
+       className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-50 backdrop-blur-sm">
+       <div className="bg-transparent p-4 rounded-lg text-black text-3xl font-mono">
+         Loading....
+       </div>
+     </div>}
       <div className="relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border">
   <div
     className="relative grid mx-4 mb-4 -mt-6 overflow-hidden text-white shadow-lg h-28 place-items-center rounded-xl bg-gradient-to-tr from-purple-900 to-purple-500 bg-clip-border shadow-gray-900/20">

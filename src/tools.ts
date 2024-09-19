@@ -17,6 +17,13 @@ const toolsList = [
         link: '/githubhome'
     },
     {
+        id: 180,
+        name: "Crypto Price",
+        des: "Users can search profiles and view details like repositories, followers, following, and social links in a clean, intuitive UI.",
+        img: githubsearch,
+        link: '/cryptoPrice'
+    },
+    {
         id: 2,
         name: "YT Video Downloader",
         des: "Visit the desired video, capture its URL, and insert it into the input field. Once completed, select the Video quality or select MP3 for Audio and hit Enter. ",
