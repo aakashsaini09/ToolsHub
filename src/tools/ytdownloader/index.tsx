@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import image from '../assets/ytImage.svg'
 import MiniNav from '../../common/components/MiniNav';
+import Loader from './Loader'
+
 interface VideoResponse {
   status: string;
   title: string;
@@ -21,31 +23,45 @@ interface VideoResponse {
 }
 
 const YtVideo: React.FC = () => {
-    const [orgUrl, setOrgUrl] = useState<string>('');
-    const [videoId, setvideoId] = useState<string | null>('')
+    let [orgUrl, setOrgUrl] = useState('');
+    let [videoId, setvideoId] = useState<string>('')
     const [videoData, setVideoData] = useState<VideoResponse | null>(null);
     const [loading, setloading] = useState(false)
     // logic to extract video id from url (orgUrl from videoId) line num 27-42.
-    const extractorgUrl = (url: string): string | null => {
-        const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-        const match = url.match(regex);
-        return match ? match[1] : null;
-      };
-
+    const extractorgUrl = (url: string): string => {
+      const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+      const match = url.match(regex);
+      if(match) {
+        return match[1];
+      }else {
+        toast.error("please enter a valid Youtube URL");
+        return "";
+      }
+    };
+    
       const handleExtract = () => {
-        const id = extractorgUrl(orgUrl);
-        const value = id;
-        setvideoId(value);
-        mainfunction()
-      };
-      const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setOrgUrl(e.target.value);
+        const id: string = extractorgUrl(orgUrl);
+        if(id == "") {
+          orgUrl = "";
+          setVideoData(null);
+          setloading(false);
+          return; 
+        }
+        setvideoId(id)
       };
 
+     useEffect(() => {
+        if(videoId) {
+          setloading(true);
+          mainfunction();
+        }
+     },[videoId]) 
       // Logic for download videos
-      const mainfunction = async()=> {
-        setloading(true)
-        // @ts-ignore
+      const mainfunction = async() => {
+        setVideoData(null);
+        setloading(true);
+        console.log(orgUrl);
+        console.log(videoId);
         if(videoId?.length <= 3 || videoId?.length == undefined){
           toast.error("API is busy, Try one more time.")
           setloading(false)
@@ -86,7 +102,7 @@ const YtVideo: React.FC = () => {
             </div>
             
             <div className="search w-[60%] flex"> 
-                <input className='bg-gray-50 border-none text-gray-900 text-sm rounded-lg outline-none block mx-auto p-2.5 w-full' placeholder='Paste Video link here' type="text" value={orgUrl} onChange={handleInputChange} />
+                <input className='bg-gray-50 border-none text-gray-900 text-sm rounded-lg outline-none block mx-auto p-2.5 w-full' placeholder='Paste Video link here' type="text" value={orgUrl} onChange={e => {setOrgUrl(e.target.value)} } />
                 <button className={`text-white bg-blue-700 hover:bg-blue-800 ${loading ? 'cursor-not-allowed': 'cursor-pointer'} font-medium rounded-lg text-sm px-5 py-2.5 mx-3`} onClick={handleExtract} disabled={loading ? true : false}>Download</button>
             </div>
             {/* render api data from here */}
@@ -122,7 +138,7 @@ const YtVideo: React.FC = () => {
                       })}
                     </div>
                 </div>
-            </div>): (<div className='mt-6 font-serif '>Nothing to render!</div>) }
+            </div>): loading ? <Loader /> : <div> Nothing to render </div> }
       </div>
       <footer className='min-h-48 w-full'>
       </footer>
@@ -131,3 +147,4 @@ const YtVideo: React.FC = () => {
 };
 
 export default YtVideo;
+
