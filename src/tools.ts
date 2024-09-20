@@ -34,7 +34,7 @@ const toolsList = [
     {
         id: 4,
         name: "AI ChatBot",
-        des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
+        des: "Instant and easy-to-use AI chatbot! Ask anything and get quick responses from AI without the need to log in or sign up. Completely free and accessible for all your queries!",
         img: ai,
         link: '/ai_bot'
     },
@@ -55,14 +55,14 @@ const toolsList = [
     {
         id: 7,
         name: "Color Picker",
-        des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
+        des: "Effortless and intuitive color picker! Choose, customize, and generate beautiful colors for your designs. Instantly copy hex, RGB, or HSL codes with ease!",
         img: colorPicker,
         link: '/colorPicker',
     },
     {
         id: 8,
         name: "Love Calculator",
-        des: "Simple and fast URL shortener! ShortURL allows to shorten long links from Instagram, Facebook, YouTube, Twitter, Linked In, WhatsApp, TikTok, blogs and sites.",
+        des: "Fun and playful love calculator! Enter your name and your partner's to find out the love compatibility. Just for laughs—enjoy the fun results with friends!",
         img: love,
         link: '/lovecal',
     },
