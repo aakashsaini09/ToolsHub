@@ -6,7 +6,7 @@ import typing from './assets/typing.svg'
 import IpAddress from './assets/IPAddress.svg'
 import ytDownloader from './assets/ytdowloader.svg'
 import passGen from './assets/passGen.svg'
-import love from './assets/love.svg'
+// import love from './assets/love.svg'
 import githubsearch from './assets/githubsearch.svg'
 import crypto from './assets/crypto.svg'
 const toolsList = [
@@ -59,13 +59,13 @@ const toolsList = [
         img: colorPicker,
         link: '/colorPicker',
     },
-    {
-        id: 8,
-        name: "Love Calculator",
-        des: "Fun and playful love calculator! Enter your name and your partner's to find out the love compatibility. Just for laughs—enjoy the fun results with friends!",
-        img: love,
-        link: '/lovecal',
-    },
+    // {
+    //     id: 8,
+    //     name: "Love Calculator",
+    //     des: "Fun and playful love calculator! Enter your name and your partner's to find out the love compatibility. Just for laughs—enjoy the fun results with friends!",
+    //     img: love,
+    //     link: '/lovecal',
+    // },
     {
         id: 9,
         name: "Price Tracker",
