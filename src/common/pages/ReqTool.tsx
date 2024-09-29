@@ -54,14 +54,14 @@ const ReqTool = () => {
                               </div>
                               <input value={data.url} onChange={(e) => {setdata({...data, url: e.target.value})}} id="subject" name="from_ref" type="text" placeholder="Reference Link (optional)"
                                   className="my-4 py-4 px-4 rounded-md bg-gray-900 text-gray-300 w-full outline-none focus:ring-2 focus:ring-blue-600"/>
-                              <textarea value={data.msg} onChange={(e) => {setdata({...data, msg: e.target.value})}} id="message" name="message" rows={5} placeholder="Discribe the tool"
+                              <textarea value={data.msg} onChange={(e) => {setdata({...data, msg: e.target.value})}} id="message" name="message" rows={5} placeholder="Describe the tool here..."
                                   className="my-2 py-2 px-4 rounded-md bg-gray-900 text-gray-300 w-full outline-none focus:ring-2 focus:ring-blue-600"></textarea>
                           </div>
                           <button type="submit" value="Send" className=" text-md mt-5 rounded-md py-2 px-4 bg-blue-600 hover:bg-blue-700 text-gray-100 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-600">
                               Send Message
                           </button>
                           <div className="mt-10">
-                              <p className="text-white">Want to help us improve this tool? Join our <a href="https://veilmail.io/e/FkKh7o" className="underline text-white hover:text-blue-500" target="_blank">Discord server!</a></p>.
+                              <p className="text-white">Want to help us improve this tool? Join our <a href="https://discordapp.com/users/1243529310351130704" className="underline text-white hover:text-blue-500" target="_blank">Discord server!</a></p>.
                           </div>
                       </form>
                   </div>
