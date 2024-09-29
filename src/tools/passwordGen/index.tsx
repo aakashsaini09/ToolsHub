@@ -37,7 +37,7 @@ const PassGen = () => {
   return (
     <>
     <MiniNav/>
-    <div className="main h-[100vh] w-[100vw] bg-gray-400 flex items-center justify-center">
+    <div className="main h-[100vh] w-[100vw] bg-gray-900 flex items-center justify-center">
       <div className="card min-h-[70vh] min-w-[55vw] bg-white">
 
         <div className="password bg-black text-white font-bold text-3xl flex justify-between w-full min-h-24 p-6">

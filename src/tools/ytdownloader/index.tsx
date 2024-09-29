@@ -120,7 +120,7 @@ const YtVideo: React.FC = () => {
                 <div className='w-full pl-48 pr-10'>
                     <details className='cursor-pointer'>
                         <summary className='font-extrabold text-lg'>Description</summary>
-                        <p className='text-gray-800'>{videoData.description}</p>
+                        <p className='text-gray-800 whitespace-pre-wrap'>{videoData.description}</p>
                     </details>
                 </div>
                 <div className="links min-h-28 w-full flex flex-col">
