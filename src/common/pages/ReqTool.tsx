@@ -5,6 +5,7 @@ import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 // You mean like post upload timer
 const ReqTool = () => {
+  const [loading, setloading] = useState(true)
   const [data, setdata] = useState({
     name: "",
     tool: "",
@@ -14,27 +15,33 @@ const ReqTool = () => {
   const form = useRef<HTMLFormElement>(null);
 
   const sendEmail = (e: any) => {
+    setloading(true)
     e.preventDefault();
     if(data.name.length<=3 || data.tool.length <=3 || data.msg.length <=5){
       toast.error("please add more details.")
+      setloading(false)
     }else{
       if (form.current) {
         emailjs.sendForm('service_m7m4cms', 'template_672omes', form.current, 'I63x-JqsPsXPj1wLb')
-          .then( () => {
-            toast.success("THANK YOU FOR THE SUGGESTION.😃")
-            setdata({name:"", tool: "", url: "",  msg: "" }) },
-            (error) => {
-              toast.error("Something went wrong. Please try again?")
-              console.log('FAILED...', error.text);
-              setdata({name:"", tool: "", url: "", msg: "" })
+        .then( () => {
+          toast.success("THANK YOU FOR THE SUGGESTION.😃")
+          setloading(false)
+          setdata({name:"", tool: "", url: "",  msg: "" }) },
+          (error) => {
+            toast.error("Something went wrong. Please try again?")
+            console.log('FAILED...', error.text);
+            setdata({name:"", tool: "", url: "", msg: "" })
+            setloading(false)
             },
           );
       } else {
         console.log('Form reference is null');
+        setloading(false)
       }
     }
   };
-  return (
+
+    return (
     <>
     <Navbar/>
     <main>
@@ -64,6 +71,12 @@ const ReqTool = () => {
                               <p className="text-white">Want to help us improve this tool? Join our <a href="https://discordapp.com/users/1243529310351130704" className="underline text-white hover:text-blue-500" target="_blank">Discord server!</a></p>.
                           </div>
                       </form>
+                      { loading && <div id="static-modal" data-modal-backdrop="static" tabIndex={-1} aria-hidden="true"
+       className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-50 backdrop-blur-sm">
+       <div className="bg-transparent p-4 rounded-lg text-white text-3xl font-mono">
+         Please Wait...
+       </div>
+     </div>}
                   </div>
               </div>
           </div>
@@ -71,6 +84,7 @@ const ReqTool = () => {
     <Footer/>
     </>
   )
+
 }
 
 export default ReqTool
