@@ -5,7 +5,7 @@ import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 // You mean like post upload timer
 const ReqTool = () => {
-  const [loading, setloading] = useState(true)
+  const [loading, setloading] = useState(false)
   const [data, setdata] = useState({
     name: "",
     tool: "",
