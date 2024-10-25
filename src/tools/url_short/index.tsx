@@ -8,20 +8,29 @@ const Url_short = () => {
     const [loading, setloading] = useState(false)
     const convertUrl = async() => {
         setloading(true)
-        try {  
-            const url = userUrl.toString()
-            const res = await axios.post('https://shrtlnk.dev/api/v2/link',{url: url}, 
-                {headers: { 'api-key': 'ZlNBz8KDuWmSLloaAq2WGwogZaNEP6uwn5N49hhzAou8a', 'Accept': 'application/json','Content-Type': 'application/json'
-                }});
-            const data = await res.data
-            setsortedUrl(data.shrtlnk);
-            toast.success("URL is ready");
-            setloading(false)
-        } catch (err) {
-            toast.error("Enter a valid URL")
-            console.log(err)
-            setloading(false)
-        }
+        // try {  
+          //     const res = await axios.post('https://shrtlnk.dev/api/v2/link',{url: url}, 
+          //         {headers: { 'api-key': 'ZlNBz8KDuWmSLloaAq2WGwogZaNEP6uwn5N49hhzAou8a', 'Accept': 'application/json','Content-Type': 'application/json'
+          //         }});
+            
+      const url = userUrl.toString()
+      const options = {
+        method: 'POST', url: 'https://url-shortener42.p.rapidapi.com/shorten/',
+        headers: {'x-rapidapi-key': 'a4d702d09amsh7b6d61652897a15p157f4fjsne2cf8f30c1d0','x-rapidapi-host': 'url-shortener42.p.rapidapi.com','Content-Type': 'application/json' },
+        data: {url: url, validity_duration: 5 }
+      };
+      try {
+        const response = await axios.request(options);
+        // console.log(response.data);
+        const data = await response.data
+        setsortedUrl(data.url);
+        toast.success("URL is ready");
+        setloading(false)
+      } catch (err) {
+          toast.error("Enter a valid URL")
+          console.log(err)
+          setloading(false)
+      }
     }
     function copyFunction() {
         toast.success("URL Copied!!")
